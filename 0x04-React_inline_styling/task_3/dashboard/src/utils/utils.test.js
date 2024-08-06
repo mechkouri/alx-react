@@ -1,25 +1,19 @@
-import { getFooterCopy, getFullYear, getLatestNotification } from './utils';
-import { StyleSheetTestUtils } from 'aphrodite';
+import { getLatestNotification, getFullYear, getFooterCopy } from './utils';
 
-describe("Utils functions", () => {
-  beforeEach(() => {
-    StyleSheetTestUtils.suppressStyleInjection();
+describe('Test Utils.js', () => {
+  it('Function getFullYear', (done) => {
+    expect(getFullYear()).toBe(new Date().getFullYear());
+    done();
   });
 
-  test("getFullYear returns the correct year", () => {
-    expect(getFullYear()).toEqual(2023);
+  it('Function getFooterCopy', (done) => {
+    expect(getFooterCopy(true)).toBe('Holberton School');
+    expect(getFooterCopy(false)).toBe('Holberton School main dashboard');
+    done();
   });
 
-  test("getFooterCopy returns the correct string when the argument is true", () => {
-    expect(getFooterCopy(true)).toEqual("Holberton School");
+  it('Function getLatestNotification', (done) => {
+    expect(getLatestNotification()).toBe('<strong>Urgent requirement</strong> - complete by EOD');
+    done();
   });
-
-  test("getFooterCopy returns the correct string when the argument is false", () => {
-    expect(getFooterCopy(false)).toEqual("Holberton School main dashboard");
-  });
-
-  test("getLatestNotification returns the expected string", () => {
-    expect(getLatestNotification()).toEqual("<strong>Urgent requirement</strong> - complete by EOD");
-  });
-
 });

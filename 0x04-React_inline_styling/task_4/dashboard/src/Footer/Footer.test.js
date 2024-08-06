@@ -1,21 +1,24 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Footer from './Footer';
-import { StyleSheetTestUtils } from 'aphrodite';
+import { expect } from 'chai';
+import App from '../App/App';
+import Footer from './Footer'
 
-describe("Testing <Footer /> component", () => {
-  let wrapper;
-
-  beforeEach(() => {
-    StyleSheetTestUtils.suppressStyleInjection();
-    wrapper = shallow(<Footer />);
+describe('Test Footer.js', () => {
+  it('Footer without crashing', (done) => {
+    expect(shallow(<Footer />).exists());
+    done();
   });
 
-  it("Footer Component renders without crashing", () => {
-    expect(wrapper.exists());
+  it('div with the class App-footer', (done) => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.contains(<footer className='App-footer' />))
+    done();
   });
 
-  it("Footer compoenent render at the very least the text “Copyright”", () => {
-    expect(wrapper.find("Copyright").at(0)).toBeDefined();
+  it('renders Copyright text', (done) => {
+    const wrapper = shallow(<Footer />);
+    expect(wrapper.text('Copyright')).contain('Copyright');
+    done();
   });
 });

@@ -1,11 +1,22 @@
-:root {
-    --holberton-red: #e1484c;
+.App-body {
+    margin-top: 4rem;
+    height: calc(100vh - 7rem - 162px);
 }
 
-.App-body {
-    padding: 36px 24px;
+.App-body p {
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+}
+
+.App-body label:first-of-type {
+    margin-left: 3rem;
 }
 
 .App-body input {
-    margin: 0 16px 0 8px;
+    margin: 0 1rem;
+    padding: .2rem 0;
+}
+
+.App-body button {
+    padding: .2rem .5rem;
 }
